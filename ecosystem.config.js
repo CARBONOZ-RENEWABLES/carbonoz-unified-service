@@ -2,7 +2,7 @@ module.exports = {
   apps: [{
     name: 'carbonoz-unified',
     script: 'dist/index.js',
-    cwd: '/home/localadmin/unified-service',
+    cwd: '/home/localadmin/carbonoz-unified-service',
     interpreter: '/home/localadmin/.nvm/versions/node/v18.19.0/bin/node',
     env: {
       NODE_ENV: 'production',
