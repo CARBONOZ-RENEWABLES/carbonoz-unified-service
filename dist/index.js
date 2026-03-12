@@ -59066,7 +59066,7 @@ var require_client2 = __commonJS({
         "db"
       ],
       "activeProvider": "mongodb",
-      "postinstall": true,
+      "postinstall": false,
       "inlineDatasources": {
         "db": {
           "url": {
@@ -59566,7 +59566,7 @@ var import_node_schedule = __toESM(require_node_schedule());
 // src/config/redis.db.js
 var import_redis = __toESM(require_dist7());
 var redisClient = (0, import_redis.createClient)({
-  url: process.env.REDIS_URL || "redis://192.168.160.185"
+  url: process.env.REDIS_URL || "redis://localhost:6379"
 });
 redisClient.on("error", (err) => console.error("Redis Client Error:", err));
 
@@ -60690,8 +60690,8 @@ var influxDB = null;
 var writeApi = null;
 try {
   influxDB = new V2({
-    url: process.env.INFLUXDB_URL || "http://192.168.160.190:8086",
-    token: process.env.INFLUXDB_TOKEN || "XCQzpsuF7Bo-tLY6HA3Z1K3eZ5AhIn4POx1m_vnuG9X1B-zf2NmN5Gxrw___-Lu5h-EaHCyEAP8X--5V96r8Wg=="
+    url: process.env.INFLUXDB_URL || "http://localhost:8086",
+    token: process.env.INFLUXDB_TOKEN || "carbonoz-super-secret-token-change-in-production"
   });
   const org = process.env.INFLUXDB_ORG || "carbonoz";
   const bucket = process.env.INFLUXDB_BUCKET || "home_assistant";
