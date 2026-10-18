@@ -1,0 +1,5 @@
+# Real environment files hold credentials: never commit them (use .env.example).
+.env
+.env.*
+!.env.example
+.DS_Store

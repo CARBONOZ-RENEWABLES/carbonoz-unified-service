@@ -85,7 +85,7 @@ module.exports = {
       PORT: '8000',
       REDIS_URL: 'redis://192.168.160.185:6379',
       INFLUXDB_URL: 'http://localhost:8086',
-      INFLUXDB_TOKEN: 'XCQzpsuF7Bo-tLY6HA3Z1K3eZ5AhIn4POx1m_vnuG9X1B-zf2NmN5Gxrw___-Lu5h-EaHCyEAP8X--5V96r8Wg==',
+      INFLUXDB_TOKEN: '<INFLUXDB_TOKEN from the password manager>',
       INFLUXDB_ORG: 'carbonoz',
       INFLUXDB_BUCKET: 'home_assistant',
       DATABASE_URL: 'mongodb://localhost:27017/carbonoz'
@@ -97,12 +97,14 @@ module.exports = {
 ## Deployment Steps
 
 ### 1. Deploy to 192.168.160.190
+
+> Credentials are never written in this repository. Use SSH keys (or the password from the password manager when prompted).
 ```bash
 # From your local machine
-sshpass -p 'Adgl5581' scp -r unified-service localadmin@192.168.160.190:~/
+scp -r unified-service localadmin@192.168.160.190:~/
 
 # SSH to server
-sshpass -p 'Adgl5581' ssh localadmin@192.168.160.190
+ssh localadmin@192.168.160.190
 
 # Install and start
 cd ~/unified-service
