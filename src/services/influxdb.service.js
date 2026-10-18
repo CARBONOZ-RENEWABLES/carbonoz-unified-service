@@ -8,10 +8,17 @@ const FLUSH_INTERVAL = 5000 // Flush every 5 seconds
 const BATCH_SIZE = 100 // Flush when batch reaches 100 points
 let pointCount = 0
 
+function requiredToken() {
+  const token = process.env.INFLUXDB_TOKEN
+  if (!token) throw new Error('INFLUXDB_TOKEN is not set')
+  return token
+}
+
 try {
   influxDB = new InfluxDB({
     url: process.env.INFLUXDB_URL || 'http://192.168.160.190:8086',
-    token: process.env.INFLUXDB_TOKEN || 'XCQzpsuF7Bo-tLY6HA3Z1K3eZ5AhIn4POx1m_vnuG9X1B-zf2NmN5Gxrw___-Lu5h-EaHCyEAP8X--5V96r8Wg==',
+    // No fallback: the token comes only from the environment (never from code).
+    token: requiredToken(),
     timeout: 10000 // 10 second timeout
   })
 
